@@ -2,6 +2,8 @@ package com.example.productorderservice.product;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 /*
  1. productService에 addProduct라는 요청을 보낸다.
@@ -10,18 +12,10 @@ import org.junit.jupiter.api.Test;
  4. productPort의 구현체인 adapter에서 이 정보를 메모리로 저장한다.
 */
 
+@SpringBootTest
 class ProductServiceTest {
+    @Autowired
     private ProductService productService;
-    private ProductPort productPort;
-    private ProductRepository productRepository;
-
-    @BeforeEach
-        // productService 초기화
-    void setUp() {
-        productRepository = new ProductRepository();
-        productPort = new ProductAdapter(productRepository);
-        productService = new ProductService(productPort);
-    }
 
     @Test
     void 상품등록() {
