@@ -1,10 +1,11 @@
-package com.example.productorderservice.product;
+package com.example.productorderservice.product.application.service;
 
+import com.example.productorderservice.product.domain.DiscountPolicy;
 import org.springframework.util.Assert;
 
-record AddProductRequest(String name, int price, DiscountPolicy discountPolicy) {
+public record AddProductRequest(String name, int price, DiscountPolicy discountPolicy) {
     // record : 불변 데이터 객체를 쉽게 생성할 수 있도록 하는 새로운 유형의 클래스
-    AddProductRequest(final String name, final int price, final DiscountPolicy discountPolicy) {
+    public AddProductRequest(final String name, final int price, final DiscountPolicy discountPolicy) {
         this.name = name;
         this.price = price;
         this.discountPolicy = discountPolicy;
